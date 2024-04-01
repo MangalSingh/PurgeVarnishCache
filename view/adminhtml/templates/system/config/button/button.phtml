@@ -1,0 +1,46 @@
+<style type="text/css">
+    #row_demo_configuration_listbutton .note{
+        color: red;
+    }
+    .buttoncustom {
+      background-color: #eb5203;
+      border: none;
+      color: white;
+      padding: 6px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+}
+</style>
+<?php $adminUrl = $this->helper('Magento\Backend\Helper\Data')->getHomePageUrl(); ?>
+<div class="pp-buttons-container" id="collect_span">
+    <a class="buttoncustom" href="<?php echo $block->getButtonUrl(); ?>">
+        <span><span><span><?php echo $block->escapeHtml($block->getButtonLabel()); ?></span></span></span>
+    </a>
+</div>
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function($){
+      $(document).ready( function() {
+        var stutes = $('#demo_configuration_enable').find(":selected").val();
+        if (stutes==0) {
+            $("#row_demo_configuration_port_number").hide();
+            $("#row_demo_configuration_listbutton").hide();
+        }else{
+            $("#row_demo_configuration_port_number").show();
+            $("#row_demo_configuration_listbutton").show();
+        }
+      });
+        $("#demo_configuration_enable").change(function(){
+            var stutes2 = $('#demo_configuration_enable').find(":selected").val();
+            if (stutes2==0) {
+                $("#row_demo_configuration_port_number").hide();
+                $("#row_demo_configuration_listbutton").hide();
+            }else{
+                $("#row_demo_configuration_port_number").show();
+                $("#row_demo_configuration_listbutton").show();
+            }
+        });
+    });
+</script>
